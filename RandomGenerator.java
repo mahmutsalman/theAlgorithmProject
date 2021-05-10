@@ -26,7 +26,7 @@ public class RandomGenerator {
             //no rules.
             if (mod.equals("Plain")) {
                 for (i = 0; i < setSize; i++) {
-                    myWriter.write("Set " + i + ":");
+                    myWriter.write("Set " + (i+1) + ":");
 
                     for (j = 0; j < (int) (Math.pow(10, (i) / numOfEach + 1)); j++) {
                         String rand = String.valueOf((int) (Math.random() * 10000));
