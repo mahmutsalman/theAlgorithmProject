@@ -6,7 +6,7 @@ public class Reader {
     public ArrayList<Input> read() {
 
         ArrayList<Input> list = new ArrayList<Input>();
-        String fileName = "C:\\Users\\engin\\IdeaProjects\\theAlgorithmProject\\sample";
+        String fileName = "C:\\Users\\engin\\IdeaProjects\\theAlgorithmProject\\randomNumbers.txt";
         String line;
         try {
             FileReader fileReader = new FileReader(fileName);
@@ -14,8 +14,9 @@ public class Reader {
 
             while ((line = bufferedReader.readLine()) != null) {
                 Input input = new Input();
-                String name = line.substring(0,5);
-                line = line.substring(7);
+                int index = line.indexOf(':');
+                String name = line.substring(0,index);
+                line = line.substring(index + 2);
                 String[] inputNumbers = line.split(", ");
                 int numbers[] = new int[inputNumbers.length];
                 System.out.println(inputNumbers.length);
@@ -37,41 +38,3 @@ public class Reader {
     }
 }
 
-
-
-
-
-
-
-//import java.io.File;
-//        import java.io.FileNotFoundException;
-//        import java.util.ArrayList;
-//        import java.util.Scanner;
-//
-//public class Reader {
-//    public ArrayList<Input>() {
-//        ArrayList<Input> list = new ArrayList<Input>();
-//
-//        try {
-//            File myObj = new File("filename.txt");
-//            Scanner myReader = new Scanner(myObj);
-//            while (myReader.hasNextLine()) {
-//                Input input = new Input();
-//                int size = lineSize;
-//                int arr[lineSize];
-//                for (int i = 0; i < lineSize; i++) {
-//                    arr[i] = myReader.nextInt();
-//                }
-//                input.size = lineSize;
-//                input.setArr(arr);
-//            }
-//            myReader.close();
-//        } catch (FileNotFoundException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
-//
-//
-//        return list;
-//    }
-//}

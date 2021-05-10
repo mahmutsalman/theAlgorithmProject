@@ -3,7 +3,11 @@ import java.util.ArrayList;
 public class test {
     public static void main(String[] args) {
         Reader reader = new Reader();
-        ArrayList<Input> inputList = reader.read();
-        System.out.println("Hello");
+        Random random = new Random();
+        //ArrayList<Input> inputList = reader.read();
+        //System.out.println((int)(Math.random()*2));
+
+        random.randomGenerator();
+
     }
 }
