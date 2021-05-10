@@ -1,7 +1,6 @@
 public class Input {
     String name;
     int arr[];
-
     public Input () {
     }
 
@@ -11,4 +10,5 @@ public class Input {
     public void setName(String name) {
         this.name = name;
     }
+
 }
