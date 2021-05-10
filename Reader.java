@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Reader {
-    public ArrayList<Input> read(String mod) {
+    public static ArrayList<Input> read(String mod) {
 
         ArrayList<Input> list = new ArrayList<Input>();
         String fileName = "C:\\Users\\engin\\IdeaProjects\\theAlgorithmProject\\" + mod + ".txt";

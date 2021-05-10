@@ -6,7 +6,7 @@ import java.io.IOException;
 public class RandomGenerator {
     public RandomGenerator() {
     }
-    public void randomGenerator(String mod) {
+    public static void randomGenerator(String mod) {
 
         try {
             File myObj = new File(mod + ".txt");
