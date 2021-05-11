@@ -2,13 +2,13 @@ import java.util.ArrayList;
 
 public class test {
     public static void main(String[] args) {
+
         // Set start variables
-        int modN = 0;
+        int modNumber = 0;
         boolean generateNewSets = false;
 
-
         String[] mods = {"Plain", "Duplicate", "Sorted"};
-        String mod = mods[modN];
+        String mod = mods[modNumber];
 
         if (generateNewSets)
             RandomGenerator.randomGenerator(mod);

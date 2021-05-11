@@ -39,7 +39,6 @@ public class RandomGenerator {
             }
             //GENERATE DUPLICATE DENSE SETS, equal number of times of respectively 10, 100, 1000 elements.
             //Approximately more than half of elements are reoccuring.
-
             if (mod.equals("Duplicate")) {
                 for (i = 0; i < setSize; i++) {
                     myWriter.write("Set " + (i+1) + ":");
