@@ -6,7 +6,7 @@ public class Reader {
     public ArrayList<Input> read() {
 
         ArrayList<Input> list = new ArrayList<Input>();
-        String fileName = "C:\\Users\\engin\\IdeaProjects\\theAlgorithmProject\\sample";
+        String fileName = "sample";
         String line;
         try {
             FileReader fileReader = new FileReader(fileName);
