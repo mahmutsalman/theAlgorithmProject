@@ -141,9 +141,84 @@ public class Algorithms {
     public void quickSortV2() {
     }
 
-    public void heapSort() {
+    // For Heap Sort
+    public void heapSort(int arr[]) {
+        int n = arr.length;
+
+        // Build max heap
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
+        }
+
+        // Heap sort
+        for (int i = n - 1; i >= 0; i--) {
+            int temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            // Heapify root element
+            heapify(arr, i, 0);
+        }
     }
 
-    public void countingsort() {
+    void heapify(int arr[], int n, int i) {
+        // Find largest among root, left child and right child
+        int largest = i;
+        int l = 2 * i + 1;
+        int r = 2 * i + 2;
+
+        if (l < n && arr[l] > arr[largest])
+            largest = l;
+
+        if (r < n && arr[r] > arr[largest])
+            largest = r;
+
+        // Swap and continue heapifying if root is not largest
+        if (largest != i) {
+            int swap = arr[i];
+            arr[i] = arr[largest];
+            arr[largest] = swap;
+
+            heapify(arr, n, largest);
+        }
+    }
+
+    public void countingsort(int array[], int size) {
+        int[] output = new int[size + 1];
+
+        // Find the largest element of the array
+        int max = array[0];
+        for (int i = 1; i < size; i++) {
+            if (array[i] > max)
+                max = array[i];
+        }
+        int[] count = new int[max + 1];
+
+        // Initialize count array with all zeros.
+        for (int i = 0; i < max; ++i) {
+            count[i] = 0;
+        }
+
+        // Store the count of each element
+        for (int i = 0; i < size; i++) {
+            count[array[i]]++;
+        }
+
+        // Store the cummulative count of each array
+        for (int i = 1; i <= max; i++) {
+            count[i] += count[i - 1];
+        }
+
+        // Find the index of each element of the original array in count array, and
+        // place the elements in output array
+        for (int i = size - 1; i >= 0; i--) {
+            output[count[array[i]] - 1] = array[i];
+            count[array[i]]--;
+        }
+
+        // Copy the sorted elements into original array
+        for (int i = 0; i < size; i++) {
+            array[i] = output[i];
+        }
     }
 }
