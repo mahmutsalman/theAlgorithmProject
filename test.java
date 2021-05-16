@@ -29,7 +29,8 @@ public class test {
             // Algorithms.quickSort(input.getArr(), 0, input.getArr().length-1);
             // Algorithms.mergeSort(input.getArr(), 0, input.getArr().length - 1);
             // Algorithms.heapSort(input.getArr()); 
-             Algorithms.countingsort(input.getArr(), input.getArr().length);
+             //Algorithms.countingsort(input.getArr(), input.getArr().length);
+             Algorithms.recursiveQuickSort(input.getArr(), 0, input.getArr().length-1);
             long end = System.nanoTime();
             long elapsedTime = end - start;
 
