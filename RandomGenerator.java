@@ -6,7 +6,7 @@ import java.io.IOException;
 public class RandomGenerator {
     public RandomGenerator() {
     }
-    public static void randomGenerator(String mod) {
+    public static void randomGenerator(String mod, int setSize, int numOfEach) {
 
         try {
             File myObj = new File(mod + ".txt");
@@ -19,8 +19,7 @@ public class RandomGenerator {
             BufferedWriter out = new BufferedWriter(myWriter);
             int i = 1;
             int j = 0;
-            int setSize = 12;
-            int numOfEach = 3;
+
 
             //GENERATE RANDOM SETS, equal number of times of respectively 10, 100, 1000 elements. PLAIN
             //no rules.
@@ -76,8 +75,52 @@ public class RandomGenerator {
             }
             //TODO GENERATE SORTED SETS
             if (mod.equals("Sorted")) {
-
+                for (i = 0; i < setSize; i++) {
+                    myWriter.write("Set " + (i+1) + ":");
+                    String rand = String.valueOf((int) (Math.random() * 10000));
+                    for (j = 0; j < (int) (Math.pow(10, (i) / numOfEach + 1)); j++) {
+                        if (j == Math.pow(10, (i) / numOfEach + 1) - 1)
+                            myWriter.write(" " + rand + "\n");
+                        else
+                            myWriter.write(" " + rand + ",");
+                    }
+                }
             }
+            //TODO GENERATE GAP SETS
+            if (mod.equals("Gap")) {
+                for (i = 0; i < setSize; i++) {
+                    myWriter.write("Set " + (i+1) + ":");
+
+                    for (j = 0; j < (int) (Math.pow(10, (i) / numOfEach + 1)); j++) {
+                        String rand = "";
+                            if (j % 2 == 0)
+                        rand = String.valueOf((int) (Math.random() * 10));
+                            else
+                        rand = String.valueOf((int) (Math.random() * 10 + 9000));
+                        if (j == Math.pow(10, (i) / numOfEach + 1) - 1)
+                            myWriter.write(" " + rand + "\n");
+                        else
+                            myWriter.write(" " + rand + ",");
+                    }
+                }
+            }
+            if (mod.equals("CountingSort")) {
+                for (i = 0; i < setSize; i++) {
+                    myWriter.write("Set " + (i+1) + ":");
+
+                    for (j = 0; j < (int) (Math.pow(10, (i) / numOfEach + 1)); j++) {
+                        String rand = "";
+
+                        rand = String.valueOf((int) (Math.random() * 10));
+
+                        if (j == Math.pow(10, (i) / numOfEach + 1) - 1)
+                            myWriter.write(" " + rand + "\n");
+                        else
+                            myWriter.write(" " + rand + ",");
+                    }
+                }
+            }
+
 
             myWriter.close();
         } catch (IOException e) {
