@@ -5,8 +5,8 @@ public class test {
     public static void main(String[] args) {
 
         // Set start variables
-        int modNumber = 0;
-        boolean generateNewSets = true;
+        int modNumber = 1;
+        boolean generateNewSets = false;
 
         // Random generator settings
         int setSize = 6;
@@ -20,23 +20,26 @@ public class test {
 
         ArrayList<Input> inputList = Reader.read(mod);
 
-        System.out.print("Insert algo name here: ");
+        System.out.print("Algorithm: CountingSort, Type: " + mods[modNumber] + ": ");
         for (Input input : inputList) {
 
             long start = System.nanoTime();
 
             // Sorting operation
-            // Algorithms.quickSort(input.getArr(), 0, input.getArr().length-1);
-            // Algorithms.mergeSort(input.getArr(), 0, input.getArr().length - 1);
-            // Algorithms.heapSort(input.getArr()); 
-             //Algorithms.countingsort(input.getArr(), input.getArr().length);
-             Algorithms.recursiveQuickSort(input.getArr(), 0, input.getArr().length-1);
+            //Algorithms.recursiveQuickSort(input.getArr(), 0, input.getArr().length-1);
+            //Algorithms.quickSortMedian(input.getArr());
+             // Algorithms.mergeSort(input.getArr(), 0, input.getArr().length - 1);
+             //Algorithms.heapSort(input.getArr());
+             Algorithms.countingsort(input.getArr(), input.getArr().length);
+
             long end = System.nanoTime();
             long elapsedTime = end - start;
 
             System.out.print(elapsedTime + " ");
 
         }
+
+
 
 
     }

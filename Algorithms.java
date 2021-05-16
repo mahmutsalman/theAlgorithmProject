@@ -70,12 +70,52 @@ public class Algorithms {
         }
     }
 
-    
+    // For quick sort pivoting the mid element
+    public static void quickSortMedian(int a[]){
+        int left = 0;
+        int right = a.length-1;
 
-    
-
-    public void quickSortV2() {
+        quickSortM(a, left, right);
     }
+
+    private static void quickSortM(int a[], int left, int right){
+
+        // If both cursor scanned the complete array quicksort exits
+        if(left >= right)
+            return;
+
+        // For the simplicity, we took the right most item of the array as a pivot
+        int pivot = a[right];
+        int partition = partitionMedian(a, left, right, pivot);
+
+        // Recursively, calls the quicksort with the different left and right parameters of the sub-array
+        quickSortM(a, 0, partition-1);
+        quickSortM(a, partition+1, right);
+    }
+
+    private static int partitionMedian(int a[], int left, int right, int pivot){
+        int leftCursor = left-1;
+        int rightCursor = right;
+        while(leftCursor < rightCursor){
+            while(a[++leftCursor] < pivot);
+            while(rightCursor > 0 && a[--rightCursor] > pivot);
+            if(leftCursor >= rightCursor){
+                break;
+            }else{
+                swapMedian(a, leftCursor, rightCursor);
+            }
+        }
+        swapMedian(a, leftCursor, right);
+        return leftCursor;
+    }
+
+    public static void swapMedian(int a[], int left, int right){
+        int temp = a[left];
+        a[left] = a[right];
+        a[right] = temp;
+    }
+
+    // For quick sort pivoting the first element
     public static int partition(int[] a, int left, int right) {
         int pivot = a[left];
         while(left<=right) {
@@ -93,6 +133,7 @@ public class Algorithms {
         }
         return left;
     }
+
     public static void recursiveQuickSort(int[] a, int i, int j) {
         int idx = partition(a, i, j);
         if(i < idx-1) {
@@ -102,7 +143,6 @@ public class Algorithms {
             recursiveQuickSort(a, idx, j);
         }
     }
-
     // For heap sort
     public static void heapify(int arr[], int n, int i) {
         // Find largest among root, left child and right child
