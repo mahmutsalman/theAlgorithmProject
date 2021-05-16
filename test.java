@@ -5,7 +5,7 @@ public class test {
     public static void main(String[] args) {
 
         // Set start variables
-        int modNumber = 1;
+        int modNumber = 3;
         boolean generateNewSets = false;
 
         // Random generator settings
@@ -25,12 +25,14 @@ public class test {
 
             long start = System.nanoTime();
 
-            // Sorting operation
-            //Algorithms.recursiveQuickSort(input.getArr(), 0, input.getArr().length-1);
-            //Algorithms.quickSortMedian(input.getArr());
-             // Algorithms.mergeSort(input.getArr(), 0, input.getArr().length - 1);
-             //Algorithms.heapSort(input.getArr());
-             Algorithms.countingsort(input.getArr(), input.getArr().length);
+            // Sorting operations
+            // Algorithms.recursiveQuickSort(input.getArr(), 0, input.getArr().length-1);
+            // Algorithms.quickSortMedian(input.getArr());
+            // Algorithms.mergeSort(input.getArr(), 0, input.getArr().length - 1);
+            // Algorithms.heapSort(input.getArr());
+            //Algorithms.countingsort(input.getArr(), input.getArr().length);
+            // Algorithms.insertionSort(input.getArr());
+            //Algorithms.binaryInsertionSort(input.getArr());
 
             long end = System.nanoTime();
             long elapsedTime = end - start;
