@@ -26,8 +26,9 @@ public class test {
             long start = System.nanoTime();
 
             // Sorting operation
-            Algorithms.quickSort(input.getArr(), 0, input.getArr().length-1);
+            // Algorithms.quickSort(input.getArr(), 0, input.getArr().length-1);
             // Algorithms.mergeSort(input.getArr(), 0, input.getArr().length - 1);
+            Algorithms.heapSort(input.getArr());
 
             long end = System.nanoTime();
             long elapsedTime = end - start;
