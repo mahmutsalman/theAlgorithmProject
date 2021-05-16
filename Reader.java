@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Reader {
     public static ArrayList<Input> read(String mod) {

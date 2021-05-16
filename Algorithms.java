@@ -1,10 +1,9 @@
 import java.util.Arrays;
 
 public class Algorithms {
-    public Algorithms() {
+   
 
-    }
-
+    // Insertion sort algorithm
     public static void insertionSort(int array[]) {
         int size = array.length;
 
@@ -25,6 +24,7 @@ public class Algorithms {
         }
     }
 
+    //Binary insertion sort
     public static void binaryInsertionSort(int array[])
     {
         for (int i = 1; i < array.length; i++)
@@ -44,7 +44,7 @@ public class Algorithms {
 
 
 
-
+    // Merge sort algorihm with 'merge' method
     public static void merge(int arr[], int p, int q, int r) {
         // Create L ← A[p..q] and M ← A[q+1..r]
         int n1 = q - p + 1;
@@ -106,50 +106,14 @@ public class Algorithms {
         }
     }
 
-    // For quick sort pivoting the mid element
-    public static void quickSortMedian(int a[]){
-        int left = 0;
-        int right = a.length-1;
+    
 
-        quickSortM(a, left, right);
-    }
 
-    private static void quickSortM(int a[], int left, int right){
+   
 
-        // If both cursor scanned the complete array quicksort exits
-        if(left >= right)
-            return;
+   
 
-        // For the simplicity, we took the right most item of the array as a pivot
-        int pivot = a[right];
-        int partition = partitionMedian(a, left, right, pivot);
-
-        // Recursively, calls the quicksort with the different left and right parameters of the sub-array
-        quickSortM(a, 0, partition-1);
-        quickSortM(a, partition+1, right);
-    }
-
-    private static int partitionMedian(int a[], int left, int right, int pivot){
-        int leftCursor = left-1;
-        int rightCursor = right;
-        while(leftCursor < rightCursor){
-            while(a[++leftCursor] < pivot);
-            while(rightCursor > 0 && a[--rightCursor] > pivot);
-            if(leftCursor >= rightCursor){
-                break;
-            }else{
-                swapMedian(a, leftCursor, rightCursor);
-            }
-        }
-        swapMedian(a, leftCursor, right);
-        return leftCursor;
-    }
-
-    public static void swapMedian(int a[], int left, int right){
-        int temp = a[left];
-        a[left] = a[right];
-        a[right] = temp;
-    }
+   
 
     // For quick sort pivoting the first element
     public static int partition(int[] a, int left, int right) {
@@ -170,6 +134,8 @@ public class Algorithms {
         return left;
     }
 
+
+    // For Quick Sort..
     public static void recursiveQuickSort(int[] a, int i, int j) {
         int idx = partition(a, i, j);
         if(i < idx-1) {
@@ -179,6 +145,88 @@ public class Algorithms {
             recursiveQuickSort(a, idx, j);
         }
     }
+
+    // For Quick Sort median
+    public static void recQuickSort(int[] theArray, int left, int right) {
+        int size = right - left + 1;
+        if (size <= 3) {
+            manualSort(theArray, left, right);
+        } else {
+            long median = medianOf3(theArray, left, right);
+            int partition = partitionIt(theArray, left, right, median);
+            recQuickSort(theArray, left, partition - 1);
+            recQuickSort(theArray, partition + 1, right);
+        }
+    }
+    public static long medianOf3(int[] theArray, int left, int right) {
+        int center = (left + right) / 2;
+
+        if (theArray[left] > theArray[center]) {
+            swap(left, center, theArray);
+        }
+
+        if (theArray[left] > theArray[right]) {
+            swap(left, right, theArray);
+        }
+
+        if (theArray[center] > theArray[right]) {
+            swap(center, right, theArray);
+        }
+
+        swap(center, right - 1, theArray);
+        return theArray[right - 1];
+    }
+
+    public static void swap(int dex1, int dex2, int[] theArray) {
+        int temp = theArray[dex1];
+        theArray[dex1] = theArray[dex2];
+        theArray[dex2] = temp;
+    }
+
+    public static int partitionIt(int[] theArray, int left, int right, long pivot) {
+        int leftPtr = left;
+        int rightPtr = right - 1;
+
+        while (true) {
+            while (theArray[++leftPtr] < pivot)  
+             ;
+            while (theArray[--rightPtr] > pivot) 
+             ;
+            if (leftPtr >= rightPtr) {
+                break;
+            } else {
+                swap(leftPtr, rightPtr, theArray);
+            }
+        }
+        swap(leftPtr, right - 1, theArray);
+        return leftPtr;
+    }
+    public static void manualSort(int[] theArray, int left, int right) {
+        int size = right - left + 1;
+        if (size <= 1) {
+            return;
+        }
+        if (size == 2) {
+            if (theArray[left] > theArray[right]) {
+                swap(left, right, theArray);
+            }
+            return;
+        } else {
+            if (theArray[left] > theArray[right - 1]) {
+                swap(left, right - 1, theArray);
+            }
+            if (theArray[left] > theArray[right]) {
+                swap(left, right, theArray);
+            }
+            if (theArray[right - 1] > theArray[right]) {
+                swap(right - 1, right, theArray);
+            }
+        }
+    }
+
+
+
+
     // For heap sort
     public static void heapify(int arr[], int n, int i) {
         // Find largest among root, left child and right child
@@ -202,6 +250,8 @@ public class Algorithms {
         }
     }
 
+
+    // Heap sort algorithm
     public static void heapSort(int arr[]) {
         int n = arr.length;
 
@@ -221,6 +271,8 @@ public class Algorithms {
         }
     }
 
+
+    // Counting sort algorithm
     public static void countingsort(int array[], int size) {
         int[] output = new int[size + 1];
 

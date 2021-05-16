@@ -4,8 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class RandomGenerator {
-    public RandomGenerator() {
-    }
+    
     public static void randomGenerator(String mod, int setSize, int numOfEach) {
 
         try {
@@ -73,7 +72,7 @@ public class RandomGenerator {
                     }
                 }
             }
-            //TODO GENERATE SORTED SETS
+            
             if (mod.equals("Sorted")) {
                 for (i = 0; i < setSize; i++) {
                     myWriter.write("Set " + (i+1) + ":");
@@ -86,7 +85,7 @@ public class RandomGenerator {
                     }
                 }
             }
-            //TODO GENERATE GAP SETS
+            
             if (mod.equals("Gap")) {
                 for (i = 0; i < setSize; i++) {
                     myWriter.write("Set " + (i+1) + ":");
