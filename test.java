@@ -1,5 +1,4 @@
-import java.time.Duration;
-import java.time.Instant;
+
 import java.util.ArrayList;
 
 public class test {
@@ -13,7 +12,7 @@ public class test {
         int setSize = 6;
         int numOfEach = 1;
 
-        String[] mods = {"Plain", "Duplicate", "Sorted", "Gap", "CountingSort"};
+        String[] mods = { "Plain", "Duplicate", "Sorted", "Gap", "CountingSort" };
         String mod = mods[modNumber];
 
         if (generateNewSets)
@@ -22,28 +21,20 @@ public class test {
         ArrayList<Input> inputList = Reader.read(mod);
 
         System.out.print("Insert algo name here: ");
-            for (Input input: inputList) {
+        for (Input input : inputList) {
 
-                long start = System.nanoTime();
+            long start = System.nanoTime();
 
-//                int sortedArray[] = sort ( input.getArr() ) ;
+            // Sorting operation
+            Algorithms.mergeSort(input.getArr(), 0, input.getArr().length - 1);
 
-                long end = System.nanoTime();
-                long elapsedTime = end - start;
+            long end = System.nanoTime();
+            long elapsedTime = end - start;
 
+            System.out.print(elapsedTime + " ");
 
-                System.out.print(elapsedTime + " ");
+        }
 
-
-// some time passes
-
-
-                // time passes
-
-
-            }
-
-//        System.out.println("s");
 
     }
 }
