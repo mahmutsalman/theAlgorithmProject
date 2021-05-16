@@ -11,4 +11,11 @@ public class Input {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int[] getArr() {
+        return arr;
+    }
 }
