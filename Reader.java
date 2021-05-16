@@ -6,7 +6,7 @@ public class Reader {
     public static ArrayList<Input> read(String mod) {
 
         ArrayList<Input> list = new ArrayList<Input>();
-        String fileName = "C:\\Users\\engin\\IdeaProjects\\theAlgorithmProject\\" + mod + ".txt";
+        String fileName =   mod + ".txt";
         String line;
         try {
             FileReader fileReader = new FileReader(fileName);

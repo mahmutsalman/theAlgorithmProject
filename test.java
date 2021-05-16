@@ -6,7 +6,7 @@ public class test {
     public static void main(String[] args) {
 
         // Set start variables
-        int modNumber = 1;
+        int modNumber = 0;
         boolean generateNewSets = true;
 
         // Random generator settings
